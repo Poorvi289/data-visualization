@@ -1,0 +1,251 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "ca701d85",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter a positive integer: 25\n",
+      "46368\n"
+     ]
+    }
+   ],
+   "source": [
+    "def Fibonacci(n):\n",
+    "    if(n<=0):\n",
+    "        print(\"Incorrect input, Please enter a positive integer\")\n",
+    "    elif(n==1):\n",
+    "        return 0\n",
+    "    elif(n==2):\n",
+    "        return 1\n",
+    "    else:\n",
+    "        return Fibonacci(n-1)+Fibonacci(n-2)\n",
+    "n = int(input(\"Enter a positive integer: \"))\n",
+    "print(Fibonacci(n))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "c2c304f4",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter the binary number for conversion: 26\n",
+      "binary number {bin} in decimal is:  10\n"
+     ]
+    }
+   ],
+   "source": [
+    "def binaryToDecimal(binary):\n",
+    " decimal, i = 0, 0\n",
+    " while(binary != 0):\n",
+    "     dec_rem = binary % 10\n",
+    "     decimal = decimal + dec_rem * pow(2, i)\n",
+    "     binary = binary//10\n",
+    "     i += 1\n",
+    " print(\"binary number {bin} in decimal is: \", decimal)\n",
+    "bin = int(input(\"Enter the binary number for conversion: \"))\n",
+    "binaryToDecimal(bin)\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "d5109df2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter octal number88\n",
+      "the hexadecimal equivalent of {octal_number} is {hexadecimal_number}\n"
+     ]
+    }
+   ],
+   "source": [
+    "octal_number = input(\"Enter octal number\")\n",
+    "decimal_number = 0\n",
+    "power = len(str(octal_number)) - 1\n",
+    "for digit in str(octal_number):\n",
+    "    decimal_number += int(digit) * 8 ** power\n",
+    "    power -= 1\n",
+    "hexadecimal_number=hex(decimal_number)[2:].upper()\n",
+    "print(\"the hexadecimal equivalent of {octal_number} is {hexadecimal_number}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "id": "6fbe25b2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter a sentence: avgda248AFB\n",
+      "Number of words: 1\n",
+      "Number of digits: 3\n",
+      "Number of uppercase letters: 3\n",
+      "Number of lowercase letters: 5\n"
+     ]
+    }
+   ],
+   "source": [
+    "sentence = input(\"Enter a sentence: \")\n",
+    "num_words = len(sentence.split())\n",
+    "num_digits = 0\n",
+    "num_uppercase = 0\n",
+    "num_lowercase = 0\n",
+    "for char in sentence:\n",
+    "    if char.isdigit():\n",
+    "        num_digits += 1\n",
+    "    elif char.isupper():\n",
+    "            num_uppercase += 1\n",
+    "    elif char.islower():\n",
+    "            num_lowercase += 1\n",
+    "print(\"Number of words:\", num_words)\n",
+    "print(\"Number of digits:\", num_digits)\n",
+    "print(\"Number of uppercase letters:\", num_uppercase)\n",
+    "print(\"Number of lowercase letters:\", num_lowercase)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "id": "0a3765be",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Original string:\n",
+      "Python Exercises\n",
+      "Python Exercise\n",
+      "Similarity between two said strings:\n",
+      "0.967741935483871\n"
+     ]
+    }
+   ],
+   "source": [
+    "from difflib import SequenceMatcher\n",
+    "string1 = \"Python Exercises\"\n",
+    "string2 = \"Python Exercise\"\n",
+    "similarity = SequenceMatcher(None, string1, string2).ratio()\n",
+    "print(\"Original string:\")\n",
+    "print(string1)\n",
+    "print(string2)\n",
+    "print(\"Similarity between two said strings:\")\n",
+    "print(similarity)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "id": "d59dc547",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter marks of Test 1: 20\n",
+      "Enter marks of Test 2: 50\n",
+      "Enter marks of Test 3: 60\n",
+      "Best average of two tests:  55.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "test1 = int(input(\"Enter marks of Test 1: \"))\n",
+    "test2 = int(input(\"Enter marks of Test 2: \"))\n",
+    "test3 = int(input(\"Enter marks of Test 3: \"))\n",
+    "Worst_score = min(test1, test2, test3)\n",
+    "best_average = (test1 + test2 + test3 - Worst_score) / 2\n",
+    "print(\"Best average of two tests: \", best_average)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "id": "91c45b1b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter number:52\n",
+      "The number 52 isn't a palindrome!\n",
+      "Digit counts in 52 :\n",
+      "5 : 1\n",
+      "2 : 1\n"
+     ]
+    }
+   ],
+   "source": [
+    "num = int(input(\"Enter number:\"))\n",
+    "temp=num\n",
+    "rev=0\n",
+    "while(num>0):\n",
+    "  dig = num % 10\n",
+    "  rev = rev*10 + dig\n",
+    "  num = num//10\n",
+    "if(temp==rev):\n",
+    "  print(f\"The number {temp} is a palindrome!\")\n",
+    "else:\n",
+    "  print(f\"The number {temp} isn't a palindrome!\")\n",
+    "digit_counts = {}\n",
+    "for digit in str(temp):\n",
+    "  if digit in digit_counts:\n",
+    "    digit_counts[digit] += 1\n",
+    "  else:\n",
+    "    digit_counts[digit] = 1\n",
+    "print(\"Digit counts in\", temp, \":\")\n",
+    "for digit, count in digit_counts.items():\n",
+    "  print(digit, \":\", count)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "219a82bd",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
